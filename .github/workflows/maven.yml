@@ -27,4 +27,4 @@ jobs:
         JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
         JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
 
-      run: mvn deploy -Dusername=JFROG_USERNAME -Dpassword=JFROG_PASSWORD 
+      run: mvn deploy -Dusername=JFROG_USERNAME -Dpassword=JFROG_PASSWORD -s settings.xml
