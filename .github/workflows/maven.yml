@@ -24,7 +24,7 @@ jobs:
         cache: maven
     - name: Build SI core framework with maven
       env:
-        JFROG_USERNAME: ${{ secret.JFROG_USERNAME }}
-        JFROG_PASSWORD: ${{ secret.JFROG_PASSWORD }}
+        JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
+        JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
 
       run: mvn deploy -Dusername=JFROG_USERNAME -Dpassword=JFROG_PASSWORD -s settings.xml
