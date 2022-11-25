@@ -1,3 +1,3 @@
-if grep -i "console.log" Dockerfile; then
+if grep -ir "console.log" .; then
   exit 1 # SomeString was found
 fi
