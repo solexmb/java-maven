@@ -13,7 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: run unit test
-      run: echo "mvn test"    
+      run: |
+        echo "mvn test"    
   lint_scan:
     name: Lint scan
     needs: unit_test
