@@ -37,7 +37,7 @@ jobs:
         ./lint-scan.sh
   build:
     runs-on: ubuntu-latest
-    needs: lint_scan
+    needs: [lint_scan,tf_lint] 
     steps:
     - uses: actions/checkout@v3
     - name: search
