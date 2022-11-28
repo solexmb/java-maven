@@ -15,6 +15,16 @@ jobs:
     - name: run unit test
       run: |
         echo "mvn test"
+  tf_lint:
+    name: Tf lint
+    needs: unit_test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: run unit test
+      run: |
+        chmod +x tf-lint.sh
+        ./tf-lint.sh
   lint_scan:
     name: Lint scan
     needs: unit_test
