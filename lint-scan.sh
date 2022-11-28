@@ -25,7 +25,7 @@ set -Eeuo pipefail
 # CURRENT_STAGE - The current stage used for the reporting output.                 #
 # -------------------------------------------------------------------------------- #
 
-INSTALL_COMMAND="pip install --quiet pur"
+INSTALL_COMMAND="sudo apt-get install yamllint -y"
 
 TEST_COMMAND='yamllint'
 FILE_TYPE_SEARCH_PATTERN='No Magic Pattern'
