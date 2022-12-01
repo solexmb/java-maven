@@ -35,6 +35,31 @@ EXIT_VALUE=0
 CURRENT_STAGE=0
 
 # -------------------------------------------------------------------------------- #
+# Install Prerequisites                                                            #
+# -------------------------------------------------------------------------------- #
+# Install the required tooling.                                                    #
+# -------------------------------------------------------------------------------- #
+
+function install_prerequisites
+{
+    stage "Install Prerequisites"
+
+    python3 -m pip install --quiet --upgrade pip
+
+    if ! command -v ${TEST_COMMAND} &> /dev/null
+    then
+        if errors=$( ${INSTALL_COMMAND} 2>&1 ); then
+            success "${INSTALL_COMMAND}"
+        else
+            fail "${INSTALL_COMMAND}" "${errors}" true
+            exit $EXIT_VALUE
+        fi
+    else
+        success "${TEST_COMMAND} is alredy installed"
+    fi
+}
+
+# -------------------------------------------------------------------------------- #
 # Get Version Information                                                          #
 # -------------------------------------------------------------------------------- #
 # Get the current version of the required tool.                                    #
@@ -334,6 +359,7 @@ function setup
 
 setup
 handle_parameters
+install_prerequisites
 get_version_information
 stage "${BANNER}"
 scan_files
