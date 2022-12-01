@@ -15,6 +15,16 @@ jobs:
     - name: run unit test
       run: |
         echo "mvn test"
+  json_lint:
+    name: Json lint
+    needs: unit_test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: run unit test
+      run: |
+        chmod +x json-scan.sh
+        ./json-scan.sh
   tf_lint:
     name: Tf lint
     needs: unit_test
