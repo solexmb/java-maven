@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASE_IMAGE=$(grep "FROM " Dockerfile | awk '{print $2}')
-echo Base Image is ****** $BASE_IMAGE ************
+echo $BASE_IMAGE 
 
 docker run --rm -v $HOME:/root/.cache/ aquasec/trivy:0.17.2 -q image --exit-code 0 --severity HIGH --light $BASE_IMAGE
 docker run --rm -v $HOME:/root/.cache/ aquasec/trivy:0.17.2 -q image --exit-code 1 --severity CRITICAL --light $BASE_IMAGE
