@@ -28,6 +28,5 @@ jobs:
       
     - name: Vulnerability scan Docker
       run: |
-        ls
-        sh trivy-docker-image-scan.sh
+        bash trivy-docker-image-scan.sh
         
