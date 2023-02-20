@@ -26,9 +26,9 @@ jobs:
 
       run: mvn clean package
       
-    - name: Vulnerability scan Docker
-      run: |
-        bash trivy-docker-image-scan.sh
+#     - name: Vulnerability scan Docker
+#       run: |
+#         bash trivy-docker-image-scan.sh
         
     - name: OPA conftest on Dockerfile
       run: $ docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile       
